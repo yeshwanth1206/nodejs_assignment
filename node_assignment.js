@@ -1,14 +1,16 @@
 var ageWiseLiterateDistribution = new Object();
 var eduCategWise = new Object();
 
-
-
 function File_read(fileNames) 
 {
     fileNames.map(function(fileName)
 		{
+			var util=require('util');
 			var fs = require('fs');
-			var data = fs.readFileSync(fileName).toString();
+			readline=require('readline').createInterface({
+				input:fileNames
+			})
+			//var data = fs.readFileSync(fileName).toString();
 			console.log("For File: "+fileName);
 			taken_datas_file(data);
 		});
@@ -16,7 +18,7 @@ function File_read(fileNames)
     eduCategWise = dataconverter(eduCategWise);
 }
 var fileNames = ["India2011.csv","IndiaSC2011.csv","IndiaST2011.csv"];
-File_read(fileNames);
+//File_read(fileNames);
 
 
 function dataconverter (file_data) 
